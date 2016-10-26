@@ -1,38 +1,22 @@
-var translate = function (x, y) {
-    return "translate(" + x + "," + y + ")";
-};
-var RANGE = 10;
-const UPPER_LIMIT = 100;
-const LOWER_LIMIT = 0;
-
-const WIDTH = 1000;
-const HEIGHT = 720;
-const MARGIN = 30;
-
+const UPPER_LIMIT = 100,LOWER_LIMIT = 0,WIDTH = 1000,HEIGHT = 720,MARGIN = 50;
 const INNER_WIDTH = WIDTH - (2 * MARGIN);
 const INNER_HEIGHT = HEIGHT - (2 * MARGIN);
 
-var randomNumbers = [];
-var generateRandomNumbers = function () {
+var RANGE = 10;
+
+var data = [];
+var createRandomData = function () {
     for (var i = 0; i < RANGE; i++) {
-        randomNumbers.push(_.random(LOWER_LIMIT, UPPER_LIMIT));
+        data.push(_.random(LOWER_LIMIT, UPPER_LIMIT));
     }
 };
-generateRandomNumbers();
+createRandomData();
 
-var getLastRandomNumbers = function () {
-    randomNumbers.push(_.random(0, 100));
-    randomNumbers.shift(1);
-    return randomNumbers;
+var lastRandomData = function () {
+    data.push(_.random(0, 100));
+    data.shift(1);
+    return data;
 };
-
-var createLineChartPath = function (svg, line, randomNumbers) {
-    svg.append('path')
-        .attr('d', line(randomNumbers))
-        .attr('transform', translate(MARGIN, MARGIN))
-        .classed('path', true);
-};
-
 
 var initializeChart = function (xAxis, yAxis, div) {
     var svg = d3.select(div).append("svg")
@@ -40,15 +24,22 @@ var initializeChart = function (xAxis, yAxis, div) {
         .attr('height', HEIGHT);
 
     svg.append('g')
-        .attr('transform', translate(MARGIN, HEIGHT - MARGIN))
+        .attr('transform', "translate(" + MARGIN + "," + (HEIGHT - MARGIN) + ")")
         .call(xAxis)
         .classed('xAxis', true);
 
     svg.append('g')
-        .attr('transform', translate(MARGIN, MARGIN))
+        .attr('transform', "translate(" + MARGIN + "," + MARGIN +")")
         .call(yAxis)
         .classed('yAxis', true);
     return svg;
+};
+
+var createLineChartPath = function (svg, line, data) {
+    svg.append('path')
+        .attr('d', line(data))
+        .attr('transform', "translate(" + MARGIN + "," + MARGIN +")")
+        .classed('path', true);
 };
 
 var loadChart = function () {
@@ -75,10 +66,10 @@ var loadChart = function () {
         });
 
     setInterval(function () {
-        var randomNumbers = getLastRandomNumbers();
+        var data = lastRandomData();
         lineChart.selectAll('.path').remove();
 
-        createLineChartPath(lineChart, line, randomNumbers);
+        createLineChartPath(lineChart, line, data);
 
 
     }, 350);
