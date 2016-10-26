@@ -1,0 +1,19 @@
+.container {
+	width: 1400px;
+	height: 720px;
+}
+
+path {
+    stroke: black;
+    stroke-width: 2;
+    fill: none;
+}
+
+#line-chart{
+    float: left;
+}
+
+#bar-chart{
+    float: left;
+    margin-left: 20px;
+}
