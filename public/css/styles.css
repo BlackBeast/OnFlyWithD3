@@ -4,15 +4,18 @@
 }
 
 path {
-    stroke: black;
-    stroke-width: 2;
-    fill: none;
+  stroke: black;
+  stroke-width: 2;
+  fill: none;
 }
 
 #line-chart{
-    float: left;
+  float: left;
 }
 #bar-chart{
-    /*float: left;*/
-    margin-left: 20px;
+  margin-left: 20px;
+}
+#h1{
+  position: relative;
+  left: 500px;
 }

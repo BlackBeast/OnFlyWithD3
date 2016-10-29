@@ -1,0 +1,12 @@
+.container {
+	width: 1400px;
+	height: 720px;
+}
+
+.bar{
+	font-size: 15px;
+	/*background-color: blue;*/
+}
+div{
+	margin:2px;
+}
