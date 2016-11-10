@@ -2,9 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Sortable Students Grade</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
   </head>
   <body>
+    <script type="text/javascript" src="javascript/d3.v4.min.js"></script>
+    <script type="text/javascript" src="javascript/studentsGrade.js"></script>
+    <center>
+    <h1>Grade Chart</h1>
+    </center>
+    <div class="container">
+    <div class="first-chart"></div>
+    <div class="sort-options">
+        <div class="label">Sort by : </div>
+        <button onclick="sortByName()" class="radial-corner"> Name</button>
+        <button onclick="sortBySubject()" class="radial-corner"> Subject</button>
+        <button onclick="sortByScore()" class="radial-corner"> Score</button>
+    </div>
 
+    <div>
+        <div class="label"> Subjects : </div>
+        <div class="labels"></div>
+    </div>
+</div>
   </body>
 </html>
