@@ -4,15 +4,13 @@ var loadChart = function () {
 
     var fontScale = d3.scaleLinear()
         .domain([0, 10])
-        .range(['italic bold 12px/30px sans-serif', 'italic bold 120px/180px sans-serif']);
+        .range(['12px/30px Herculanum,fantasy', '120px/180px Herculanum,fantasy']);
 
 
     container.selectAll('div')
         .data(numbers)
         .enter().append('div')
-        .style('font', function (d) {
-            return fontScale(d) + 'px';
-        })
+        .style('font', fontScale)
         .text(function (d) {
             return d;
         })
