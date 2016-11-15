@@ -1,49 +1,61 @@
+var height = 100;
+var width = 600;
+var initialPoint = 0;
+var specifiedWidth = 100;
+var specifiedMargin = 50;
+
+var line = function(svg){
+  var shape = svg.append("line")
+      .attr("x1", initialPoint)
+      .attr("y1", specifiedWidth)
+      .attr("x2", specifiedWidth)
+      .attr("y2", initialPoint)
+      .attr("stroke", "grey")
+      .classed('shape',true);
+  return shape;
+}
+var rect = function(svg){
+  var shape = svg.append("rect")
+      .attr("width", specifiedWidth)
+      .attr("height", height)
+      .classed('shape',true)
+      .attr("stroke", "steelblue")
+      .attr("rx", "5px")
+      .attr("ry", "5px")
+      .attr('transform','translate(300)');
+
+  return shape;
+}
+var circle = function(svg){
+  var shape = svg.append("circle")
+      .attr("cx",specifiedWidth / 2)
+      .attr("cy", height / 2)
+      .attr("r", specifiedWidth / 2)
+      .attr("stroke", "red")
+      .attr('transform','translate(150)')
+      .classed('shape',true);
+  return shape;
+}
+
+var triangle = function(svg){
+  var shape = svg.append("polygon")
+      .attr("stroke", "green")
+      .classed('shape',true)
+      .attr('transform','translate(450)')
+      .attr("points", initialPoint+ "," + height + ", "+
+                      specifiedMargin+ "," + initialPoint + ", "+
+                      specifiedWidth + "," + height);
+  return shape;
+}
 var createShapes = function () {
-    var height = 100;
-    var width = 600;
-    var initialPoint = 0;
-    var specifiedWidth = 100;
-    var specifiedMargin = 50;
-
-
     var svg = d3.select(".container").append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    svg.append("line")
-        .attr("x1", initialPoint)
-        .attr("y1", specifiedWidth)
-        .attr("x2", specifiedWidth)
-        .attr("y2", initialPoint)
-        .attr("stroke-width", 2)
-        .attr("stroke", "grey");
-
-    svg.append("circle")
-        .attr("cx", specifiedWidth + specifiedMargin + specifiedWidth / 2)
-        .attr("cy", specifiedWidth / 2)
-        .attr("r", specifiedWidth / 2)
-        .attr("stroke", "red")
-        .attr("stroke-width", 2)
-        .attr("fill", "none");
-
-    svg.append("rect")
-        .attr("x", specifiedWidth * 2 + specifiedMargin * 2)
-        .attr("y", initialPoint)
-        .attr("width", specifiedWidth)
-        .attr("height", specifiedWidth)
-        .style("stroke-width", 2)
-        .style("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("rx", "5px")
-        .attr("ry", "5px");
-    svg.append("polygon")
-        .attr("stroke", "green")
-        .attr("stroke-width", 2)
-        .attr("fill", "none")
-        .attr("points", (specifiedWidth * 3 + specifiedMargin * 3) + "," + height + ", "+
-                        (specifiedWidth * 3 + specifiedMargin * 4) + "," + initialPoint + ", "+
-                        (specifiedWidth * 4 + specifiedMargin * 3) + "," + height);
-
+        line(svg);
+        circle(svg);
+        rect(svg);
+        triangle(svg);
 };
 
 window.onload = createShapes();

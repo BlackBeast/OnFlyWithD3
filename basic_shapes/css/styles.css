@@ -5,3 +5,7 @@ svg{
     border: solid 1px lightgray;
     border-radius: 10px;
 }
+.shape{
+  stroke-width: 2px;
+  fill:none;
+}
