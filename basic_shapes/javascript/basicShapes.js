@@ -11,10 +11,10 @@ var createShapes = function () {
         .attr("height", height);
 
     svg.append("line")
-        .attr("x1", specifiedWidth)
-        .attr("y1", initialPoint)
-        .attr("x2", initialPoint)
-        .attr("y2", specifiedWidth)
+        .attr("x1", initialPoint)
+        .attr("y1", specifiedWidth)
+        .attr("x2", specifiedWidth)
+        .attr("y2", initialPoint)
         .attr("stroke-width", 2)
         .attr("stroke", "grey");
 
