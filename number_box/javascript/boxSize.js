@@ -3,8 +3,8 @@ var loadChart = function () {
     var container = d3.select('.container');
 
     var fontScale = d3.scaleLinear()
-        .domain([0, 10])
-        .range(['12px/30px Herculanum,fantasy', '120px/180px Herculanum,fantasy']);
+        .domain([0,10])
+        .range(['italic bold 12px/30px Verdana, Arial, Helvetica, sans-serif', 'italic bold 120px/180px Verdana, Arial, Helvetica, sans-serif']);
 
 
     container.selectAll('div')
