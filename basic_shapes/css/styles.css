@@ -2,8 +2,7 @@
     text-align: center;
 }
 svg{
-    border: solid 1px lightgray;
-    border-radius: 10px;
+    overflow: visible;
 }
 .shape{
   stroke-width: 2px;

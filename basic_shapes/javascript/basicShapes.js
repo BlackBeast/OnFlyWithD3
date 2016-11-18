@@ -1,5 +1,5 @@
 var height = 100;
-var width = 600;
+var width = 700;
 var initialPoint = 0;
 var specifiedWidth = 100;
 var specifiedMargin = 50;
@@ -56,7 +56,7 @@ var position= function(){
     let position = startBy;
     startBy += incrementBy;
     return position;
-  }
+  };
 }();
 
 var createShapes = function () {
@@ -64,11 +64,11 @@ var createShapes = function () {
         .attr("width", width)
         .attr("height", height);
 
-
         line(svg,position());
         circle(svg,position());
         rect(svg,position());
         triangle(svg,position());
+
 };
 
 window.onload = createShapes();
