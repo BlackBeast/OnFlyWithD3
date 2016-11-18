@@ -1,0 +1,16 @@
+.line {
+    fill: none;
+    stroke: brown;
+    stroke-width: 3px;
+}
+
+.dot {
+    fill: white;
+    stroke: steelblue;
+}
+
+.sinLine {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 3px;
+}
